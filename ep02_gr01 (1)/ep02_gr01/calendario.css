@@ -1,0 +1,66 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ecdfdb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #469e27;
+    font-size: 36px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Aumentado a 6 columnas */
+    gap: 15px;
+    margin-top: 30px;
+    width: 80%; /* Aumenta el ancho del calendario */
+    max-width: 1000px; /* Puedes ajustar el max-width a lo que desees */
+}
+
+.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: #ff6347;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.day:hover {
+    background-color: #ff4500;
+}
+
+.motivational-message {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #333;
+    max-width: 600px;
+    text-align: center;
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #ff4500;
+}

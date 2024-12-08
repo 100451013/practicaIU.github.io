@@ -1,0 +1,160 @@
+/* Estilos generales del cuerpo de la página */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #333333; /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Título de la página */
+h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #FFD700; /* Color dorado para resaltar */
+}
+
+/* Estilo de los botones */
+button {
+    padding: 10px 20px;
+    font-size: 36px;
+    background-color: #FFD700; /* Fondo dorado */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para mayor contraste */
+}
+
+button:hover {
+    background-color: #FFB700; /* Más claro al pasar el mouse */
+}
+
+button:active {
+    background-color: #CC9200; /* Oscuro al hacer clic */
+}
+
+/* Contenedor del juego */
+#clickTheCircleGame {
+    text-align: center;
+    background-color: #444444; /* Fondo ligeramente más claro que el cuerpo */
+    border: 5px solid #FFD700;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar el área del juego */
+}
+
+/* Contenedor del círculo */
+#circleContainer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 2px solid #FFD700;
+    margin: 20px auto; /* Centrado y espacio adicional */
+    background-color: #555555; /* Contraste para el círculo */
+    border-radius: 5px;
+}
+
+/* Estilo del círculo */
+#circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FFD700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#circle:hover {
+    transform: scale(1.2); /* Efecto visual al pasar el mouse */
+}
+
+/* Mensaje del juego */
+#gameMessage {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Botones de control */
+#gameControls {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px; /* Separación entre los botones */
+    justify-content: center; /* Alineación central */
+}
+
+/* Pantalla de inicio */
+#startScreen {
+    text-align: center;
+}
+
+#startGameButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Diseño responsivo para dispositivos móviles */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    #circleContainer {
+        width: 250px;
+        height: 250px;
+    }
+
+    #circle {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/*3 en raya*/
+/* Estilo de las filas */
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+/* Estilo de las celdas */
+.cell {
+    width: 100px;   /* Tamaño fijo de las celdas */
+    height: 100px;  /* Tamaño fijo de las celdas */
+    font-size: 2rem; /* Tamaño del texto (X/O) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000; /* Borde de las celdas en color negro */
+    background-color: #FFD700; /* Fondo de las celdas en gris claro */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Estilo al hacer hover sobre las celdas */
+.cell:hover {
+    background-color: #ddd; /* Fondo al pasar el mouse */
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Claus Tracker</title>
+    <link rel="stylesheet" href="mapa.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navidad-container">
+        <h1 class="titulo-navidad">🎅 Rastreando a Papá Noel 🎄</h1>
+        <p class="descripcion-navidad">
+            ¡Introduce tu ubicación para calcular el recorrido desde Laponia hasta tu casa!
+        </p>
+
+        <form id="locationForm">
+            <input type="text" id="location" placeholder="Introduce tu ubicación (ej: Madrid)" required>
+            <button type="submit">Calcular Ruta</button>
+        </form>
+        <a href="practica1.html"><button type="submit">Inicio</button></a>
+        <div id="map"></div>
+
+        <div id="tiempoLlegada" class="texto-navidad">
+            <!-- Aquí se mostrará el tiempo calculado -->
+        </div>
+    </div>
+
+    <script>
+        const map = L.map('map').setView([66.5, 25.7], 4); // Coordenadas de Laponia
+
+        // Cargar el mapa de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Icono personalizado para Santa Claus
+        const santaIcon = L.icon({
+            iconUrl: 'cursor.png', // Asegúrate de que la ruta sea correcta
+            iconSize: [50, 50],
+            iconAnchor: [25, 50],
+        });
+
+        // Marcador inicial en Laponia
+        const santaMarker = L.marker([66.5, 25.7], { icon: santaIcon }).addTo(map);
+
+        // Variables para limpiar la ruta y el marcador del usuario
+        let currentRoute = null;
+        let currentUserMarker = null;
+        let santaAnimation = null;
+
+        // Evento de envío del formulario
+        const form = document.getElementById('locationForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const location = document.getElementById('location').value;
+
+            // Limpiar ruta y marcador anteriores si existen
+            if (currentRoute) {
+                map.removeLayer(currentRoute);
+                currentRoute = null;
+            }
+            if (currentUserMarker) {
+                map.removeLayer(currentUserMarker);
+                currentUserMarker = null;
+            }
+            if (santaAnimation) {
+                clearInterval(santaAnimation);
+                santaAnimation = null;
+            }
+
+            // Llamada a Nominatim API para obtener coordenadas del usuario
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(location)}&format=json`);
+            const data = await response.json();
+
+            if (data.length > 0) {
+                const userCoords = [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+
+                // Añadir marcador de destino
+                currentUserMarker = L.marker(userCoords).addTo(map);
+
+                // Centrar el mapa en los dos puntos
+                map.fitBounds([santaMarker.getLatLng(), userCoords]);
+
+                // Crear ruta recta entre Laponia y el destino
+                currentRoute = L.polyline([santaMarker.getLatLng(), userCoords], {
+                    color: 'red',
+                    weight: 4,
+                    opacity: 0.8,
+                }).addTo(map);
+
+                // Calcular distancia (haversine)
+                const distance = map.distance(santaMarker.getLatLng(), userCoords) / 1000; // Distancia en km
+                const speed = 800; // Velocidad promedio (km/h)
+                const timeInSeconds = (distance / speed) * 3600; // Tiempo en segundos
+
+                // Mostrar tiempo de llegada inicial
+                const arrivalTime = Date.now() + (timeInSeconds * 1000); // Hora estimada de llegada
+                document.getElementById('tiempoLlegada').innerHTML = 
+                    `🕒 Santa Claus llegará en aproximadamente <strong>${(timeInSeconds / 3600).toFixed(2)} horas</strong>. Prepárate con galletas y leche 🍪🥛.`;
+
+                // Dividir la ruta para movimiento continuo
+                const steps = timeInSeconds * 60; // 60 pasos por segundo (animación fluida)
+                const latStep = (userCoords[0] - santaMarker.getLatLng().lat) / steps;
+                const lngStep = (userCoords[1] - santaMarker.getLatLng().lng) / steps;
+
+                let currentStep = 0;
+
+                santaAnimation = setInterval(() => {
+                    if (currentStep >= steps) {
+                        clearInterval(santaAnimation); // Detener cuando llegue al destino
+                        santaMarker.setLatLng(userCoords); // Asegurarse de que llegue al punto final
+                        document.getElementById('tiempoLlegada').innerHTML = 
+                            "🎅 ¡Santa Claus ha llegado! ¡Feliz Navidad! 🎄";
+                        return;
+                    }
+
+                    // Mover marcador paso a paso
+                    const nextLat = santaMarker.getLatLng().lat + latStep;
+                    const nextLng = santaMarker.getLatLng().lng + lngStep;
+                    santaMarker.setLatLng([nextLat, nextLng]);
+
+                    // Actualizar el tiempo restante
+                    const remainingTime = Math.max(0, (arrivalTime - Date.now()) / 1000); // Tiempo restante en segundos
+                    const hours = Math.floor(remainingTime / 3600);
+                    const minutes = Math.floor((remainingTime % 3600) / 60);
+                    const seconds = Math.floor(remainingTime % 60);
+                    document.getElementById('tiempoLlegada').innerHTML = 
+                        `🕒 Santa Claus llegará en aproximadamente <strong>${hours} horas ${minutes} minutos y ${seconds} segundos</strong>.`;
+
+                    currentStep++;
+                }, 1000 / 60); // Actualización cada 16.67 ms (60 FPS)
+            } else {
+                alert('Ubicación no encontrada. Por favor, inténtalo de nuevo.');
+            }
+        });
+    </script>
+</body>
+</html>

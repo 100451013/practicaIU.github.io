@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valora tu Experiencia</title>
+    <link rel="stylesheet" href="valoracion.css">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Valora tu experiencia</h1>
+        <div class="rating">
+            <i class="bx bx-star star" data-index="0"></i>
+            <i class="bx bx-star star" data-index="1"></i>
+            <i class="bx bx-star star" data-index="2"></i>
+            <i class="bx bx-star star" data-index="3"></i>
+            <i class="bx bx-star star" data-index="4"></i>
+        </div>
+        <textarea placeholder="Escribe tus comentarios aquí..."></textarea>
+        <button id="submitButton">Enviar</button>
+        <a href="practica1.html"><button id="inicioButton">Volver al inicio</button></a>
+    </div>
+
+    <div id="popup">
+        <p>¡Gracias por tu valoración! 🎅</p>
+        <button onclick="closePopup()">Cerrar</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stars = document.querySelectorAll('.rating .star');
+            const submitButton = document.getElementById('submitButton');
+            const popup = document.getElementById('popup');
+            let selectedRating = 0;
+
+            stars.forEach((star, idx) => {
+                star.addEventListener('click', () => {
+                    selectedRating = idx + 1;
+                    stars.forEach((s, i) => {
+                        s.classList.toggle('active', i <= idx);
+                    });
+                });
+
+                star.addEventListener('mouseover', () => {
+                    stars.forEach((s, i) => {
+                        s.classList.toggle('hover', i <= idx);
+                    });
+                });
+
+                star.addEventListener('mouseout', () => {
+                    stars.forEach((s, i) => {
+                        s.classList.toggle('hover', false);
+                    });
+                });
+            });
+
+            submitButton.addEventListener('click', () => {
+                if (selectedRating === 0) {
+                    alert('Por favor, selecciona una valoración antes de enviar.');
+                    return;
+                }
+                popup.style.display = 'block';
+            });
+        });
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

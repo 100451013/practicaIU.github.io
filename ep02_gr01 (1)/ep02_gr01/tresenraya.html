@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Tres en Raya</title>
+    <link rel="stylesheet" href="juegos.css">
+</head>
+<body>
+    <h1>Juego: Tres en Raya</h1>
+    
+    <!-- Opciones para elegir contra quién jugar -->
+    <div id="gameMode">
+        <button id="btnPlayerVsPlayer">Jugar contra otro jugador</button>
+        <button id="btnPlayerVsComputer">Jugar contra la máquina</button>
+    </div>
+
+    <!-- Botón para jugar -->
+    <button id="btnPlayTicTacToe" style="display:none;">Iniciar Juego</button>
+    
+    <!-- Área para mostrar el juego -->
+    <div id="gameContent"></div>
+
+    <!-- Botón para ir al inicio -->
+    <button id="btnGoToTop" onclick="goToHome()">Ir al Inicio</button>
+
+    <script src="tres.js"></script>
+    <script>
+    function goToHome() {
+        window.location.href = "practica1.html#page5"; // Redirige a la sección con id="page5" en practica1.html
+    }
+    </script>
+</body>
+</html>

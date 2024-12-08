@@ -1,0 +1,726 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+/* Barra de navegación */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Estilos de la barra de navegación */
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #ff6347, #ff4500);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transition: all 0.3s ease;
+    flex-wrap: wrap; 
+}
+
+nav .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; 
+}
+
+nav ul li {
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: white;
+    color: #ff4500;
+}
+
+nav ul li a.active {
+    background-color: white;
+    color: #ff4500;
+    font-weight: bold;
+}
+
+nav .buttons {
+    display: flex;
+    gap: 10px; 
+}
+
+/* Ajustes para los botones */
+nav .buttons button {
+    padding: 10px 20px;
+    background-color: white;
+    border: 2px solid #ff6347;
+    color: #ff6347;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover para los botones */
+nav .buttons button:hover {
+    background-color: #ff6347;
+    color: white;
+    border: 2px solid white;
+}
+
+/* Estilos para el overlay y pop-ups */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 200; /* Encima de la barra de navegación */
+}
+
+.popup {
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    position: relative;
+    display: none; /* Oculto por defecto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Ancho máximo */
+    max-height: 300px; /* Altura máxima */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    
+}
+
+.popup h2 {
+    margin: 0 0 15px 0;
+}
+
+.popup div {
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para el menú de perfil */
+.profile-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-menu button {
+    margin: 5px 0;
+}
+
+/* Estilos para formularios */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+    border-color: #ff6347;
+    outline: none;
+}
+
+/* ... Otros estilos que ya tengas ... */
+
+/* Estilo para el contenedor del formulario desplazable */
+.scrollable-form {
+    max-height: 400px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff; /* Color de fondo del formulario */
+}
+
+/* Estilo para los campos de los hijos */
+.childFields {
+    margin-top: 10px;
+}
+
+/* Estilos para la superposición (overlay) y popups */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Ocultado por defecto */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    position: relative;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilo del icono de perfil */
+nav .profile-menu {
+    position: relative;
+}
+
+nav .profile-menu #profileButton {
+    font-size: 1.5rem; /* Tamaño del icono */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 10px; /* Espaciado alrededor del icono */
+}
+
+/* Estilo del menú desplegable de perfil */
+nav .profile-dropdown {
+    position: absolute;
+    top: 40px; /* Alineado debajo del icono */
+    right: 0;
+    background-color: white;
+    color: #ff4500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 100;
+    display: none; /* Oculto por defecto */
+}
+
+nav .profile-dropdown button {
+    background: none;
+    border: none;
+    color: #ff4500;
+    padding: 10px 15px;
+    text-align: left;
+    cursor: pointer;
+    width: 100%; /* Abarcar todo el ancho del menú */
+}
+
+nav .profile-dropdown button:hover {
+    background-color: #ff6347;
+    color: white;
+}
+
+/* Estilos para formularios dentro de popups */
+.scrollable-form {
+    max-height: 300px; /* Altura máxima del formulario */
+    overflow-y: auto; /* Habilitar desplazamiento en el formulario */
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+
+/* patnalla pequeña */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+        align-items: flex-start; /* Alinea los elementos al inicio */
+        padding: 2%;
+    }
+
+    nav ul {
+        flex-direction: column; /* Cambia a columna para los enlaces */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+    }
+
+    nav ul li {
+        width: 100%; /* Asegura que cada enlace ocupe el ancho completo */
+    }
+
+    nav .buttons {
+        margin-top: 10px; /* Espaciado superior para los botones */
+    }
+}
+
+
+/* Estilos para cada sección */
+section {
+    min-height: 100vh;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+/* inicial */
+#home {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('navi.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 5px solid #ffffff; 
+}
+
+#home h1 {
+    color: #ffffff;
+    font-size: 8vw;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    margin-bottom: 3%;
+    text-transform: uppercase;
+    letter-spacing: 0.5vw;
+}
+
+#home p {
+    color: #ffffff;
+    font-size: 2.5vw;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5%;
+}
+
+#home button {
+    background-color: #ff6347;
+    border: none;
+    padding: 2% 5%;
+    font-size: 2vw;
+    color: white;
+    border-radius: 2vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#home button:hover {
+    background-color: #ff4500;
+    transform: scale(1.05);
+}
+
+/* hoja 2 */
+#page2 {
+    background-color: #7e1010; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    min-height: 100vh;
+    border-bottom: 5px solid #ffffff; 
+}
+
+#page2 .titulo1 {
+    padding-top: 2%;
+    font-size: 3rem; 
+    color: #469e27;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7); 
+}
+
+.pagUno {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    
+}
+
+.column1 {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+
+.column1 img {
+    width: 100%;
+    max-width: 60%; 
+    height: auto;
+    border-radius: 10%; 
+    box-shadow: 0 4px 10px rgb(174, 47, 47); 
+}
+
+.column2 {
+    flex: 1 1 50%;
+    padding-left: 2%;
+    text-align: left;
+    color: #ffffff;
+}
+
+.intro {
+
+color:#469e27;
+}
+
+.poema {
+    font-size: 1.2rem; 
+    line-height: 1.6;
+    text-align: left;
+    
+}
+
+/*pantallas pequeñas */
+@media (max-width: 768px) {
+    #page2 {
+        padding: 5%;
+    }
+
+    .pagUno {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column1, .column2 {
+        flex: 1 1 100%;
+        margin: 0;
+    }
+
+    .poema {
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+/* page 3 */
+#page3 {
+    background-color: #7e1010; 
+    padding: 5% 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border-bottom: 5px solid #ffffff; 
+}
+
+.Titulo{
+    padding-top: 2%;
+    font-size: 3rem; 
+    color: #469e27;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7); 
+}
+
+.Titulo2{
+    color: #469e27;
+}
+
+/* cartas formulario */
+.cartas-formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+/* cartas enviadas */
+.cartas-enviadas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+    max-width: 80%;
+    margin: auto;
+}
+
+.carta {
+    width: 100%;
+    text-align: left;
+    padding: 5%;
+    border: 2px solid #ccc;
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: transform 0.2s; 
+}
+
+.carta:hover {
+    transform: translateY(-5px); 
+}
+
+.carta .nombre {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.carta .ubicacion {
+    font-size: 1em; 
+    margin-top: 5px;
+    padding: 0;
+}
+
+.carta .texto {
+    font-size: 0.9em; 
+    margin-top: 10px;
+}
+
+
+
+/*juegos*/
+
+.los_juegos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+    max-width: 80%;
+    margin: auto;
+}
+
+.juegos {
+    width: 100%;
+    text-align: left;
+    padding: 5%;
+    border: 2px solid #ccc;
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: transform 0.2s; 
+}
+
+.juegos:hover {
+    transform: translateY(-5px); 
+}
+
+.foto_juego{
+    width: 100%;
+}
+
+
+
+
+
+/*pantallas pequeñas */
+@media (max-width: 768px) {
+    #page3 {
+        padding: 3%;
+    }
+
+    .cartas-enviadas {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .carta {
+        padding: 4%;
+    }
+}
+
+
+/* page 4 */
+#page4 {
+    background-color: #7e1010;
+    min-height: 100vh;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 5px solid #ffffff; 
+}
+
+.Titulo{
+    color: #469e27;
+}
+
+.textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    border: 2px solid #ccc; 
+    border-radius: 5px;
+    padding: 10px; 
+}
+
+
+/* Estilos para el botón de enviar cartas */
+#contactForm input[type="submit"] {
+    background-color: #469e27; /* Naranja */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#contactForm input[type="submit"]:hover {
+    background-color: #FF8C00; /* Naranja más oscuro al pasar el ratón */
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el ratón */
+}
+
+
+/* page 5 */
+#page5 {
+    background-color: #7e1010; 
+    padding: 10%;
+    min-height: 100vh;
+    border-bottom: 5px solid #ffffff; 
+}
+
+.pie_pagina {
+    background-color: #333;
+    padding: 2% 0;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.info_contacto {
+    margin: 0 2%;
+    color: #fff;
+    text-decoration: none;
+}
+
+/*enlaces */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*juegos */
+.contenedorJuegos {
+    display: flex;
+    width: 100%;
+    margin: 2% auto;
+    flex-wrap: wrap;
+    align-items: center; 
+    height: calc(100vh - 20%); 
+}
+
+.columna-texto {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 50%;
+}
+
+.boton-juego {
+    background-color: #4c342b4d; 
+    border: none; 
+    color: white; 
+    padding: 15px 30px; 
+    margin: 10px 0; 
+    font-size: 1.5rem; 
+    border-radius: 25px; 
+    cursor: pointer;
+    text-align: center; 
+    width: 80%; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.boton-juego:hover {
+    background-color: #ff4500; 
+    transform: scale(1.05); 
+}
+
+.columna-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.imgJuego {
+    width: 90%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin: 5%;
+}

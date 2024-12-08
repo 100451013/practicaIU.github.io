@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia de Papá Noel</title>
+    <link rel="stylesheet" href="historia.css">
+</head>
+<body>
+    <header>
+        <h1>La Historia de Papá Noel</h1>
+        <a href="practica1.html#home" class="back-button">Volver al inicio</a>
+    </header>
+
+    <section id="comic-section" class="comic-section">
+        <h2>Las 5 Viñetas sobre la vida de Papá Noel</h2>
+
+        <div class="comic" id="comic1" style="display:block;">
+            <img src="sanNi.jpeg" alt="Viñeta 1" class="comic-image">
+            <p>Papá Noel, originalmente conocido como San Nicolás, fue un obispo de Myra.</p>
+            <button class="next" onclick="nextComic(1)">Siguiente</button>
+        </div>
+
+        <div class="comic" id="comic2" style="display:none;">
+            <img src="SanNi2.jpeg" alt="Viñeta 2" class="comic-image">
+            <p>San Nicolás es conocido por su generosidad y por ayudar a los niños en necesidad.</p>
+            <button class="next" onclick="nextComic(2)">Siguiente</button>
+        </div>
+
+        <div class="comic" id="comic3" style="display:none;">
+            <img src="SanNi3.jpeg" alt="Viñeta 3" class="comic-image">
+            <p>Con el tiempo, la imagen de San Nicolás evolucionó hasta convertirse en Papá Noel.</p>
+            <button class="next" onclick="nextComic(3)">Siguiente</button>
+        </div>
+
+        <div class="comic" id="comic4" style="display:none;">
+            <img src="SanNi4.jpeg" alt="Viñeta 4" class="comic-image">
+            <p>Papá Noel comenzó a ser representado con su traje rojo y barba blanca, tal como lo conocemos hoy.</p>
+            <button class="next" onclick="nextComic(4)">Siguiente</button>
+        </div>
+
+        <div class="comic" id="comic5" style="display:none;">
+            <img src="SanNi5.jpeg" alt="Viñeta 5" class="comic-image">
+            <p>La tradición de repartir regalos en la víspera de Navidad se consolidó en todo el mundo.</p>
+            <button class="next" onclick="nextComic(5)">Siguiente</button>
+        </div>
+    </section>
+
+    <section id="quiz-section" class="quiz-section" style="display: none;">
+        <h2>Mini Examen</h2>
+        <p>Responde las siguientes preguntas:</p>
+        
+        <form id="quizForm">
+            <div class="question">
+                <label for="question1">¿Quién fue la figura histórica en la que se basó Papá Noel?</label>
+                <input type="text" id="question1" name="question1" required>
+            </div>
+
+            <div class="question">
+                <label for="question2">¿Qué día reparte regalos Papá Noel?</label>
+                <input type="text" id="question2" name="question2" required>
+            </div>
+
+            <div class="question">
+                <label for="question3">¿De qué país es originario Papá Noel?</label>
+                <input type="text" id="question3" name="question3" required>
+            </div>
+
+            <div class="question">
+                <label for="question4">¿Qué color de traje usa Papá Noel tradicionalmente?</label>
+                <input type="text" id="question4" name="question4" required>
+            </div>
+
+            <div class="question">
+                <label for="question5">¿Qué tipo de transporte utiliza Papá Noel para entregar los regalos?</label>
+                <input type="text" id="question5" name="question5" required>
+            </div>
+
+            <button type="button" onclick="submitQuiz()">Enviar Respuestas</button>
+        </form>
+
+        <div id="result" class="result"></div>
+        <button type="button" onclick="showSolutions()">Ver Soluciones</button>
+    </section>
+
+    <script src="historia.js"></script>
+</body>
+</html>

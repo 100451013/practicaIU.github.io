@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento del Viaje de Papá Noel</title>
+    <link rel="icon" href="file.jpg">
+    
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Seguimiento Papá Noel</div>
+        <ul>
+            <li><a href="#home" class="active">Inicio</a></li>
+            <li><a href="#page2">Papa Noel</a></li>
+            <li><a href="#page3">Las Cartas</a></li>
+            <li><a href="#page4">Envía tu carta</a></li>
+            <li><a href="#page5">Juega</a></li>
+            <li><a href="calendario_adviento.html">Calendario</a></li>
+        </ul>
+        <div class="buttons">
+            <button id="loginButton">Iniciar Sesión</button>
+            <button id="registerButton">Registrarse</button>
+            <a href="valoracion.html"><button id="vlóranosButton">Valóranos</button></a>
+        </div>
+    </nav>
+
+    <!-- Overlay y formularios -->
+    <div class="overlay" id="overlay">
+        <!-- Popup de inicio de sesión -->
+        <div class="popup" id="loginPopup">
+            <h2>Iniciar Sesión</h2>
+            <div class="error-message" id="loginError"></div>
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" id="username" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" required>
+            <button id="loginSubmit">Entrar</button>
+            <button id="loginCancel">Cancelar</button>
+        </div>
+
+        <!-- Popup de registro -->
+        <div class="popup" id="registerPopup">
+            <h2>Registrarse</h2>
+            <div class="error-message" id="registerError"></div>
+            <div class="scrollable-form">
+                <label for="regUsername">Nombre de usuario:</label>
+                <input type="text" id="regUsername" required>
+                <label for="regPassword">Contraseña:</label>
+                <input type="password" id="regPassword" required>
+                <label for="regConfirmPassword">Repetir contraseña:</label>
+                <input type="password" id="regConfirmPassword" required>
+                <label for="regEmail">Correo electrónico:</label>
+                <input type="email" id="regEmail" required>
+                <label for="regCity">Ciudad:</label>
+                <input type="text" id="regCity" required>
+                <label for="regCountry">País:</label>
+                <input type="text" id="regCountry" required>
+                <label for="regChildren">¿Cuántos hijos/hijas tienes?</label>
+                <input type="number" id="regChildren" min="0">
+                <div id="childrenContainer"></div>
+                <button id="addChildButton" style="display: none;">Agregar Hijo/Hija</button>
+            </div>
+            <button id="registerSubmit">Aceptar</button>
+            <button id="registerCancel">Cancelar</button>
+        </div>
+
+        <!-- Popup de Mi Perfil -->
+        <div class="popup" id="profilePopup" style="display: none;">
+            <h2>Mi Perfil</h2>
+            <div id="profileInfo"></div>
+            <button id="profileEdit">Editar</button>
+            <button id="profileClose">Cerrar</button>
+        </div>
+
+        <!-- Popup de Mis Cartas -->
+        <div class="popup" id="lettersPopup" style="display: none;">
+            <h2>Mis Cartas</h2>
+            <div id="lettersContainer"></div>
+            <button id="lettersClose">Cerrar</button>
+        </div>
+    </div>
+
+    <script src ="inicio.js">
+       
+    </script>
+
+    <!-- Primera sección -->
+    <section id="home">
+        <h1>Bienvenido Papá Noel</h1>
+        <p id="contadorTiempo">
+            Días para que venga Papá Noel: <span id="dias">0</span> días, 
+            <span id="horas">0</span> horas, 
+            <span id="minutos">0</span> minutos, 
+            <span id="segundos">0</span> segundos.
+        </p>
+        <a href="mapa.html"><button>¿Está lejos de ti?</button></a>
+    </section>
+    
+    <script src = "timer.js">
+        
+        </script>
+    
+
+<!-- Segunda sección -->
+<section id="page2">
+    <h1 class="titulo1">El Trineo de Papá Noel</h1>
+    <p class= "intro">Conoce más sobre su transporte mágico.</p>
+    <div class="pagUno">
+        <div class="column1">
+            <img src="papa_noel.jpeg" alt="papa noel">
+            
+        </div>
+        <div class="column2">
+            <p class="poema">Papá Noel es un hombre <br>
+                que vive en un bello rincón,<br>
+                en el Polo Norte espera<br>
+                cada alegre ocasión.<br><br>
+                
+                Con su trineo y renos<br>
+                vuela sin descansar,<br>
+                llevando sueños y risas<br>
+                en la noche de Navidad.<br><br>
+                
+                Si te portas muy bien,<br>
+                y sueñas con amor,<br>
+                él traerá muchos regalos<br>
+                ¡llenos de gran valor!.</p>
+                <a href="historia.html"><button>Conoce más</button></a>
+                <a href="videollamada.html"><button>Contacta con él</button></a>
+                
+        </div>
+        </div>
+
+
+
+</section>
+
+
+<!-- Tercera sección -->
+<section id="page3">
+    <h1 class="Titulo">Las cartas a Papá Noel</h1>
+    <p class="Titulo2">Descubre las cartas de niños de todo el mundo.</p>
+    <div id="cartas-enviadas" class="cartas-enviadas">
+        <div class="carta">
+            <img src="Juan.jpeg" alt="Juan" class="foto">
+            <div class="nombre">Juan</div>
+            <div class="ubicacion">Ciudad: Buenos Aires<br>País: Argentina</div>
+            <div class="texto">
+                Querido Papá Noel,
+                Este año he sido muy buen/a niño/a. Me gustaría pedirte una bicicleta roja para poder pasear con mis amigos. También me gustaría unos libros de aventuras porque me encanta leer.
+                ¡Gracias por todo lo que haces!
+                Con cariño
+            </div>     
+        </div>
+        <div class="carta">
+            <img src="pedro.jpeg" alt="Pedro" class="foto">
+            <div class="nombre">Pedro</div>
+            <div class="ubicacion">Ciudad: Madrid<br>País: España</div>
+            <div class="texto">
+                Querido Papá Noel,
+                Espero que estés bien y que los renos estén listos para la Navidad. Gracias por los juguetes del año pasado, ¡me encantaron! Este año me gustaría pedirte una consola de videojuegos y un muñeco de acción.
+                ¡Espero que tengas un buen viaje!
+                Un abrazo
+            </div> 
+        </div>
+        <div class="carta">
+            <img src="hans.jpeg" alt="Hans" class="foto">
+            <div class="nombre">Hans</div>
+            <div class="ubicacion">Ciudad: Koln<br>País: Alemania</div>
+            <div class="texto">
+                Querido Papá Noel,
+                Este año me gustaría pedir algo especial, pero no para mí. Mi hermana pequeña quiere un peluche de unicornio. Yo solo quiero un libro de dinosaurios.
+                ¡Gracias por todo lo que haces!
+            </div> 
+        </div>
+        <div class="carta">
+            <img src="maria.jpeg" alt="María" class="foto">
+            <div class="nombre">María</div>
+            <div class="ubicacion">Ciudad: Valencia<br>País: España</div>
+            <div class="texto">
+                Querido Papá Noel,
+                Este año he hecho todo lo posible por ser amable y compartir con mis amigos. Me gustaría pedir un set de pinturas y pinceles para poder hacer más arte. También me encantaría una mochila nueva para la escuela.
+                ¡Espero que disfrutes las galletas que te dejaremos!
+            </div> 
+        </div>
+        <div class="carta">
+            <img src="margot.jpeg" alt="Margot" class="foto">
+            <div class="nombre">Margot</div>
+            <div class="ubicacion">Ciudad: París<br>País: Francia</div>
+            <div class="texto">
+                Querido Papá Noel,
+                Este año me gustaría pedir un tren eléctrico y una pelota de fútbol. He sido muy responsable con mis tareas y me encanta ayudar en casa. ¡Espero que puedas pasar por mi chimenea!
+                Un fuerte abrazo 
+            </div> 
+        </div>
+        <div class="carta">
+            <img src="andrea.jpeg" alt="Andrea" class="foto">
+            <div class="nombre">Andrea</div>
+            <div class="ubicacion">Ciudad: Roma<br>País: Italia</div>
+            <div class="texto">
+                Querido Papá Noel,
+                Te mando esta carta con mucha ilusión. Aquí está mi lista de regalos que me gustaría este año:
+                1. Un set de LEGO
+                2. Unos patines
+                3. Un libro de magia
+                Espero que estés bien. ¡Gracias por todo!
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+<!-- Cuarta sección: donde se escribe la carta -->
+<section id="page4">
+    <div class="escribe_tu_carta">
+        <h2 class="Titulo">Formulario de Contacto</h2>
+        <form id="contactForm" action="#" method="POST">
+            <!-- Campo para el nombre -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+
+            <!-- Campo para la ciudad -->
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required><br><br>
+
+            <!-- Campo para el país -->
+            <label for="pais">País:</label>
+            <input type="text" id="pais" name="pais" required><br><br>
+
+            <!-- Campo para el texto -->
+            <label for="texto">Texto:</label><br>
+            <textarea class="textarea" id="texto" name="texto" rows="4" cols="50" required></textarea><br><br>
+
+            <!-- Botón para enviar el formulario -->
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</section>
+
+<script src = "formulario.js">
+    
+</script>
+
+
+<!-- Quinta sección -->
+<section id="page5">
+    <div id="los_juegos" class="los_juegos">
+        <a href="ahorcado.html"><div class="juegos">
+            <img src="ahorcado.png" alt="ahorcado" class="foto_juego">
+            <div class="nombre">Ahorcado</div>
+             
+        </div></a>
+        <a href="tresenraya.html"><div class="juegos">
+            <img src="tresenraya.png" alt="tresenraya" class="foto_juego">
+            <div class="nombre">Tres en raya</div>
+             
+        </div></a>
+        <a href="buscaminas.html"><div class="juegos">
+            <img src="buscaminas.jpg" alt="Buscaminas" class="foto_juego">
+            <div class="nombre">Buscaminas</div>
+            
+        </div></a>
+        <a href="quiz.html"><div class="juegos">
+            <img src="quiz.jpg" alt="Quiz" class="foto_juego">
+            <div class="nombre">Quiz</div>
+            
+        </div></a>
+        <a href="clickthecircle.html"><div class="juegos">
+            <img src="circulo.png" alt="circulo" class="foto_juego">
+            <div class="nombre">Click on the circle</div>
+            
+        </div></a>
+        <a href="piedrapapelotijera.html"><div class="juegos">
+            <img src="piedra.jpg" alt="piedra" class="foto_juego">
+            <div class="nombre">Piedra papel o tijeras</div>
+            
+        </div></a>
+        
+    </div>
+</section>
+
+
+
+<footer class="pie_pagina">
+    <div>
+        <div class="info_contacto">
+            <h3>Contáctanos</h3>
+            <p>Av. de Gregorio Peces-Barba Martínez, 22, 28270 Colmenarejo, Madrid</p>
+            <p>Teléfono: <a href="tel:+1-605-313-4000">+12 345 678 90</a></p>
+            <p>Email: <a href="bienvenidoPapaNoel@navidad.nd">info@example.com</a></p>
+        </div> 
+        <ul class="info_contacto">
+            <li><a href="https://www.facebook.com" >Facebook</a></li>
+            <li><a href="https://www.twitter.com">Twitte</a></li>
+            <li><a href="https://www.instagram.com" >Instagram</a></li>
+        </ul>
+        <p style="margin-top: 20px;">&copy; 2024 Mi Empresa. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+
+
+
+    
+<script >
+
+</script>
+
+</body>
+</html>

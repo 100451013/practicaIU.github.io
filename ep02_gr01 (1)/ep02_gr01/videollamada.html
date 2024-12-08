@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videollamada con Papá Noel</title>
+    <link rel="stylesheet" href="video.css">
+</head>
+<body>
+    <header>
+        <h1>Videollamada con Papá Noel</h1>
+    </header>
+
+    <main>
+        <!-- Formulario de reserva -->
+        <section id="reservation-form">
+            <h2>Reserva tu videollamada</h2>
+            <form id="formReservation">
+                <input type="text" id="name" placeholder="Tu nombre" required />
+                <input type="email" id="email" placeholder="Tu email" required />
+                <input type="datetime-local" id="datetime" required />
+                <button type="submit">Reservar</button>
+            </form>
+            <!-- Botón de inicio para la página de reserva -->
+            <button id="startButton" onclick="goToStart()">Inicio</button>
+        </section>
+
+        <!-- Sección del mensaje de Feliz Navidad -->
+        <div id="holidayMessage" class="holiday-message">
+            <p id="personalizedMessage"></p>
+        </div>
+
+        <!-- Contenedor para la videollamada (oculto inicialmente) -->
+        <section id="video-call">
+            <video id="localVideo" autoplay muted></video> <!-- Tu video -->
+            <!-- Imagen de Papá Noel -->
+            <img id="remoteImage" src="papa_noel.jpg" alt="Papá Noel" />
+        </section>
+    </main>
+
+    <script src="video.js"></script>
+</body>
+</html>

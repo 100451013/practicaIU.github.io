@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #ff6347;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.back-button {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.comic-section, .quiz-section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comic {
+    display: none;
+    text-align: center;
+}
+
+.comic-image {
+    width: 550px;  /* Establece un ancho fijo */
+    height: 450px; /* Establece una altura fija */
+    object-fit: cover; /* Asegura que la imagen se recorte para encajar sin distorsionarse */
+    margin-bottom: 10px;
+}
+
+.next {
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.next:hover {
+    background-color: #ff4500;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff4500;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: green;
+}

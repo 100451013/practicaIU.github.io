@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Piedra Papel o Tijera</title>
+    <link rel="stylesheet" href="juegos.css">
+</head>
+<body>
+    <h1>Juego: Piedra Papel o Tijera</h1>
+
+    <!-- Botones para las elecciones -->
+    <div id="choices">
+        <button id="btnPiedra">Piedra</button>
+        <button id="btnPapel">Papel</button>
+        <button id="btnTijera">Tijera</button>
+    </div>
+
+    <!-- Área para mostrar el marcador -->
+    <div id="scoreboard">
+        <p>Victorias del jugador: <span id="playerScore">0</span></p>
+        <p>Victorias de la computadora: <span id="computerScore">0</span></p>
+    </div>
+
+    <!-- Área para mostrar el resultado -->
+    <div id="gameResult"></div>
+
+    <!-- Botón para reiniciar el juego -->
+    <button id="restartButton" onclick="restartGame()" style="display:none;">Reiniciar Juego</button>
+
+    <button id="btnGoToTop" onclick="goToHome()">Ir al Inicio</button>
+
+    <script src="ppt.js"></script>
+    <script>
+        function goToHome() {
+            window.location.href = "practica1.html#page5"; // Redirige a la sección con id="page5" en practica1.html
+        }
+    </script>
+</body>
+</html>
